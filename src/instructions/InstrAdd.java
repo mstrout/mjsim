@@ -47,9 +47,9 @@ public class InstrAdd extends Instr {
 		int result = dst+src;
 		
 		// Set if there was carry from the MSB of the result; cleared otherwise
-        if ( ( (bit7Mask & dst)!=0 && (bit7Mask & src)!=0)
-            || ( (bit7Mask & src)!=0 && (bit7Mask&result)==0 ) 
-		    || ( (bit7Mask&result)==0 && (bit7Mask & dst)!=0 ) 
+        if ( ( (msbMask & dst)!=0 && (msbMask & src)!=0)
+            || ( (msbMask & src)!=0 && (msbMask&result)==0 ) 
+		    || ( (msbMask&result)==0 && (msbMask & dst)!=0 ) 
 		   )
 		{
 			newStatus.setC(true);
